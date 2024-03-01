@@ -15,24 +15,26 @@ public class Api {
 
     /**
      * 收束gradle的flavor控制，将url变量在此接管
+     * 其中serverhost为服务端的ip:端口号，请根据实际情况填写
      */
-    private static String baseUrl = "http://42.192.229.55/lingxi";
-    public static String rssUrl = "http://42.192.229.55/rss/lingxi";
+    private static final String serverHost = "localhost:8090";
+    private static String baseUrl = "http://" + serverHost + "/lingxi";
+    public static String rssUrl = "http://" + serverHost + "/rss/lingxi";
 
     static {
         String flavor = BuildConfig.FLAVOR;
         switch (flavor) {
             case "alpha":
-                baseUrl = "http://42.192.229.55/lingxi-test";
-                rssUrl = "http://42.192.229.55/rss/lingxi-test";
+                baseUrl = "http://" + serverHost + "/lingxi";
+                rssUrl = "http://" + serverHost + "/rss/lingxi";
                 break;
             case "local":
-                baseUrl = "http://192.168.137.1:8090/lingxi";
-                rssUrl = "http://192.168.137.1/rss/lingxi-test";
+                baseUrl = "http://" + serverHost + "/lingxi";
+                rssUrl = "http://" + serverHost + "/rss/lingxi";
                 break;
             case "online":
-                baseUrl = "http://42.192.229.55/lingxi";
-                rssUrl = "http://42.192.229.55/rss/lingxi";
+                baseUrl = "http://" + serverHost + "/lingxi";
+                rssUrl = "http://" + serverHost + "/rss/lingxi";
                 break;
         }
     }
